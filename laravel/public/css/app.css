@@ -1,0 +1,22 @@
+body {
+    margin:0px;
+}
+.ck-editor__editable:not(.ck-editor__nested-editable) { 
+    min-height: 400px;
+}
+#review_thumb {
+    width:150px;
+    height:150px;
+    overflow: hidden;
+}
+#review_thumb img {
+    margin-top: 20px;
+    max-width: 100%;
+}
+footer {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+}
+table.dataTable thead th:nth-child(2){
+    width:137px!important;
+}
