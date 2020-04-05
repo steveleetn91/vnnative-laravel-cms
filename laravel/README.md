@@ -5,9 +5,11 @@ Setup laravel before then
 
 Run artisan setup : php artisan setup:setting
 
-## License
+## Author
 
-Author : Le Minh Hoang
+ - Le Minh Hoang
+
+ - Facebook : https://www.facebook.com/profile.php?id=100015561036994
 
 ## Introduction
 
@@ -36,5 +38,5 @@ Author : Le Minh Hoang
  - jQuery
 
  - Filemanager JS
- 
+
 
