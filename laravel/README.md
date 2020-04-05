@@ -17,19 +17,19 @@ Run artisan setup : php artisan setup:setting
 
 + List module : 
 
-Dashboard 
+    Dashboard 
 
-Post
+    Post
 
-Page
+    Page
 
-Setting
+    Setting
 
 + Languages : 
 
-Viet Nam 
+    Viet Nam 
 
-English
+    English
 
 ## Edit core 
 
