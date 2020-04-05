@@ -45,6 +45,8 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('login');
         }
     }
     public function show(){

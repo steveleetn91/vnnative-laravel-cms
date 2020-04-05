@@ -26,7 +26,7 @@ if(session('setting_status') == 'success') {
 <form method="POST" action="<?php echo route('SaveSettingPage'); ?>">
     <div class="form-group row">
         <label for="sitename" class="col-sm-2 col-form-label">
-            Site name <span class="text-danger">*</span>
+            @lang('default_setting_page.sitename') <span class="text-danger">*</span>
         </label>
         <div class="col-sm-10">
             <input type="text" name="sitename" value="<?php echo $data['sitename']; ?>"
@@ -35,7 +35,7 @@ if(session('setting_status') == 'success') {
     </div>
     <div class="form-group row">
         <label for="siteslogan" class="col-sm-2 col-form-label">
-            Sloggan <span class="text-danger">*</span>
+        @lang('default_setting_page.slogan') <span class="text-danger">*</span>
         </label>
         <div class="col-sm-10">
             <input type="text" name="siteslogan" class="form-control-plaintext" 
@@ -44,7 +44,7 @@ if(session('setting_status') == 'success') {
     </div>
     <div class="form-group row">
         <label for="contact_mail" class="col-sm-2 col-form-label">
-            Contact mail <span class="text-danger">*</span>
+        @lang('default_setting_page.contact_mail') <span class="text-danger">*</span>
         </label>
         <div class="col-sm-10">
             <input type="email" name="contact_mail" class="form-control-plaintext" 
@@ -54,7 +54,7 @@ if(session('setting_status') == 'success') {
     </div>
     <div class="form-group row">
         <label for="contact_admin" class="col-sm-2 col-form-label">
-            Language <span class="text-danger">*</span>
+        @lang('default_setting_page.language') <span class="text-danger">*</span>
         </label>
         <div class="col-sm-10">
             <select class="form-control-plaintext"name="lang">
@@ -68,7 +68,7 @@ if(session('setting_status') == 'success') {
             
         </label>
         <div class="col-sm-10">
-            <button class="btn btn-primary">Save change</button>
+            <button class="btn btn-primary">@lang('default_setting_page.save_change')</button>
         </div>
     </div>
     @csrf

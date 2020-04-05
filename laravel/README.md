@@ -1,7 +1,7 @@
 
 ## Setup
 
-Setup laravel as basic
+Setup laravel before then
 
 Run artisan setup : php artisan setup:setting
 

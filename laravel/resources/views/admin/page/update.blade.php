@@ -18,15 +18,15 @@ Only save insert and save
         ]); ?>">
             <div class="form-group row">
                 <label for="post-tile" class="col-sm-2 col-form-label">
-                    Post title <span class="text-danger">*</span>
+                @lang('form.page_title') <span class="text-danger">*</span>
                 </label>
                 <div class="col-sm-10">
-                <input type="text" name="title" value="<?php echo $data->title; ?>"
-                class="form-control-plaintext" id="post-tile" placeholder="Maximum 50 characters">
+                <input type="text" name="title" value="<?php echo $data->title; ?>" maxLength="150" 
+                class="form-control-plaintext" id="post-tile" placeholder="@lang('form.title_placeholder')">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="content" class="col-sm-2 col-form-label">Content<span class="text-danger">*</span></label>
+                <label for="content" class="col-sm-2 col-form-label">@lang('form.content')<span class="text-danger">*</span></label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="editor" name="content" row="10">
                         <?php echo $data->content; ?>
@@ -34,16 +34,16 @@ Only save insert and save
                 </div>
             </div>
             <div class="form-group row">
-                <label for="content-seo" class="col-sm-2 col-form-label">Content Seo <span class="text-danger">*</span></label>
+                <label for="content-seo" class="col-sm-2 col-form-label">@lang('form.content') Seo <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
                     <textarea class="form-control-plaintext" id="content-seo" 
-                    name="content-seo" maxLength="30" placeholder="maximum 30 charaters"><?php echo $data->content_seo; ?></textarea>
+                    name="content-seo" maxLength="250" placeholder="@lang('form.content_seo_placeholder')"><?php echo $data->content_seo; ?></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="content-seo" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                    <button class="btn btn-primary">Save</button>
+                    <button class="btn btn-primary">@lang('form.update')</button>
                 </div>
             </div>
             @csrf

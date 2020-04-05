@@ -4,20 +4,6 @@ Only save insert and save
 @endsection
 @section('content')
     <div class="container">
-      <!-- help -->
-    <div class="pos-f-t" style="margin-bottom:20px">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h4 class="text-white">Help content</h4>
-          <span class="text-muted">You can search item name by search box</span>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
-    </div>
     <!-- table -->   
     <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
   <thead>

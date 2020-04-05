@@ -10,8 +10,8 @@
                     @lang('admin_menu.admin_menu_post')
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo route('ListPost'); ?>">List</a>
-                    <a class="dropdown-item" href="<?php echo route('CreatePost'); ?>">Add</a>
+                    <a class="dropdown-item" href="<?php echo route('ListPost'); ?>">@lang('admin_menu.admin_menu_list_text')</a>
+                    <a class="dropdown-item" href="<?php echo route('CreatePost'); ?>">@lang('admin_menu.admin_menu_add_text')</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -19,8 +19,8 @@
                     @lang('admin_menu.admin_menu_page')
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo route('ListPage'); ?>">List</a>
-                    <a class="dropdown-item" href="<?php echo route('CreatePage'); ?>">Add</a>
+                    <a class="dropdown-item" href="<?php echo route('ListPage'); ?>">@lang('admin_menu.admin_menu_list_text')</a>
+                    <a class="dropdown-item" href="<?php echo route('CreatePage'); ?>">@lang('admin_menu.admin_menu_add_text')</a>
                     </div>
                 </li>
                 <li class="nav-item">
