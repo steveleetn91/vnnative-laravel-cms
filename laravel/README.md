@@ -25,6 +25,12 @@ Run artisan setup : php artisan setup:setting
 
 - Setting
 
++ Languages : 
+
+- Viet Nam 
+
+- English
+
 ## Edit core 
 
 + Yes , you can do it . Edit or everything your need . Only basic support of step building
