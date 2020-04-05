@@ -10,39 +10,47 @@ class DefaultSettingController extends Controller
 {
     //
     public function indexAction(){
-        return view('admin.setting.v1',array(
-            'data' => array(
-                'sitename' => SettingModel::where('key','sitename')->first()->value,
-                'siteslogan' => SettingModel::where('key','siteslogan')->first()->value,
-                'contact_mail' => SettingModel::where('key','contact_mail')->first()->value,
-                'lang' => SettingModel::where('key','lang')->first()->value
-            )
-        ));
+        try {
+            return view('admin.setting.v1',array(
+                'data' => array(
+                    'sitename' => SettingModel::where('key','sitename')->first()->value,
+                    'siteslogan' => SettingModel::where('key','siteslogan')->first()->value,
+                    'contact_mail' => SettingModel::where('key','contact_mail')->first()->value,
+                    'lang' => SettingModel::where('key','lang')->first()->value
+                )
+            ));
+        }catch(Exception $e) {
+            return $this->saveException($e->getMessage()); 
+        }
     }
     public function saveAction(Request $request){
-        $validator = $this->validateForm($request);
-        if($validator != false ) {
-            return back()->withErrors($validator)->withInput();
+        try {
+            $validator = $this->validateForm($request);
+            if($validator != false ) {
+                return back()->withErrors($validator)->withInput();
+            }
+            /**
+             * Save setting
+             * You can custom to json type will better good
+             * This is example
+             */
+            SettingModel::where('key','sitename')->update(array(
+                'value' => $request->input('sitename')
+            ));
+            SettingModel::where('key','siteslogan')->update(array(
+                'value' => $request->input('siteslogan')
+            ));
+            SettingModel::where('key','contact_mail')->update(array(
+                'value' => $request->input('contact_mail')
+            ));
+            SettingModel::where('key','lang')->update(array(
+                'value' => $request->input('lang')
+            ));
+            $request->session()->put('setting_status', 'success');
+            return back();
+        }catch(Exception $e) {
+            return $this->saveException($e->getMessage()); 
         }
-        /**
-         * Save setting
-         * You can custom to json type will better good
-         * This is example
-         */
-        SettingModel::where('key','sitename')->update(array(
-            'value' => $request->input('sitename')
-        ));
-        SettingModel::where('key','siteslogan')->update(array(
-            'value' => $request->input('siteslogan')
-        ));
-        SettingModel::where('key','contact_mail')->update(array(
-            'value' => $request->input('contact_mail')
-        ));
-        SettingModel::where('key','lang')->update(array(
-            'value' => $request->input('lang')
-        ));
-        $request->session()->put('setting_status', 'success');
-        return back();
     }
     /**
      * Validator
