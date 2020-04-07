@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->enum('status',['close','pendding','public'])->default('pedding');
+            $table->enum('status',['close','pendding','public'])->default('pendding');
             $table->string('slug')->unique();
             $table->text('content');
             $table->string('content_seo');
