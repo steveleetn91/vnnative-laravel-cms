@@ -19,8 +19,20 @@ Only save insert and save
                     @lang('form.post_title') <span class="text-danger">*</span>
                 </label>
                 <div class="col-sm-10">
-                <input type="text" name="title" maxLength="150" class="form-control-plaintext" 
+                <input required type="text" name="title" maxLength="150" class="form-control-plaintext" 
                 id="post-tile" placeholder="@lang('form.title_placeholder')">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="post-tile" class="col-sm-2 col-form-label">
+                    @lang('form.status') <span class="text-danger">*</span>
+                </label>
+                <div class="col-sm-10">
+                <select class="form-control-plaintext" name="status">
+                    <option value="pendding">Pendding</option>
+                    <option value="close">Close</option>
+                    <option value="public">Public</option>
+                </select>
                 </div>
             </div>
             <div class="form-group row">
@@ -32,7 +44,7 @@ Only save insert and save
             <div class="form-group row">
                 <label for="content-seo" class="col-sm-2 col-form-label">@lang('form.content') Seo <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <textarea class="form-control-plaintext" id="content-seo" 
+                    <textarea required class="form-control-plaintext" id="content-seo" 
                     name="content-seo" maxLength="250" placeholder="@lang('form.content_seo_placeholder')"></textarea>
                 </div>
             </div>
@@ -69,6 +81,13 @@ Only save insert and save
                 </div>
             </div>
             <div class="form-group row">
+                <label for="content-seo" class="col-sm-2 col-form-label">@lang('form.tags') <span class="text-danger">*</span></label>
+                <div class="col-sm-10 form-tags">
+                    <input type="text" name="tags" class="form-control" 
+                    maxLength="75" required placeholder="@lang('form.tags_placeholder')" />
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="content-seo" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
                     <button class="btn btn-primary">@lang('form.save')</button>
@@ -79,5 +98,7 @@ Only save insert and save
     </div>
     <div class="js-action-form">
         <script src="{{ asset('js/app.add.post.js') }}" defer></script>
+        <!-- post --> 
+        <script src="{{ asset('js/app.delete.post.js') }}"></script>
     </div>
 @endsection

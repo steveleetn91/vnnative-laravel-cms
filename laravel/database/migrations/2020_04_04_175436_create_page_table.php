@@ -16,10 +16,13 @@ class CreatePageTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('template')->default('default');
+            $table->enum('status',['close','pendding','public'])->default('pendding');
             $table->string('slug')->unique();
             $table->text('content');
             $table->string('content_seo');
             $table->string('user_id');
+            $table->string('tags')->default('');
             $table->timestamps();
         });
     }

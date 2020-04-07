@@ -27,6 +27,7 @@ Route::prefix('admin')->group(function () {
             Route::post('action-add-new-post', 'Post\CreatePostController@saveAction')->name('SaveCreatePost');
             Route::get('update-post/{post_id}', 'Post\UpdatePostController@indexAction')->name('UpdatePost');
             Route::post('action-update-post/{post_id}', 'Post\UpdatePostController@saveAction')->name('SaveUpdatePost');
+            Route::get('delete-post/{post_id}', 'Post\ListPostController@deleteAction')->name('DeletePost');
             /**
              * Page Router
              */
@@ -35,6 +36,11 @@ Route::prefix('admin')->group(function () {
             Route::post('action-add-new-page', 'Page\CreatePageController@saveAction')->name('SaveCreatePage');
             Route::get('update-page/{page_id}', 'Page\UpdatePageController@indexAction')->name('UpdatePage');
             Route::post('action-update-page/{page_id}', 'Page\UpdatePageController@saveAction')->name('SaveUpdatePage');
+            Route::get('delete-page/{page_id}', 'Page\ListPageController@deleteAction')->name('DeletePage');
+            /**
+             * Media
+             */
+            Route::get('media','Media\MediaController@indexAction')->name('MediaPage');
             /**
              * Setting
              */

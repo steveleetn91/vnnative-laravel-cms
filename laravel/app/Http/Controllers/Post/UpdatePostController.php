@@ -39,10 +39,13 @@ class UpdatePostController extends Controller
             }
             $update = $post->update([
                 'title' => $request->input('title'),
+                'tags' => $request->input('tags') ? $request->input('tags') : '',
                 'content' => $request->input('content'),
+                'status' => in_array($request->input('status'),[
+                    "pendding","close","public"
+                ]) ? $request->input('status') : 'pendding',
                 'content_seo' => $request->input('content-seo'),
-                'thumbnail' => $request->input('thumbnail') ? $request->input('thumbnail') : '',
-                'user_id' => 0
+                'thumbnail' => $request->input('thumbnail') ? $request->input('thumbnail') : ''
             ]);
             if($update) {
                 return redirect(route('ListPost'));
@@ -63,7 +66,9 @@ class UpdatePostController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:150',
             'content' => 'required|min:50',
-            'content-seo' => 'required|min:10'
+            'content-seo' => 'required|min:10',
+            'status' => 'required|max:10',
+            'tags' => 'required|max:75'
         ]);
 
         if ($validator->fails()) {

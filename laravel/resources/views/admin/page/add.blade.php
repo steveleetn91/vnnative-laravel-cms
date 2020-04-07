@@ -23,6 +23,28 @@ Only save insert and save
                 </div>
             </div>
             <div class="form-group row">
+                <label for="post-tile" class="col-sm-2 col-form-label">
+                    @lang('form.status') <span class="text-danger">*</span>
+                </label>
+                <div class="col-sm-10">
+                    <select class="form-control-plaintext" name="status">
+                        <option value="pendding">Pendding</option>
+                        <option value="close">Close</option>
+                        <option value="public">Public</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="post-tile" class="col-sm-2 col-form-label">
+                    @lang('form.template') <span class="text-danger">*</span>
+                </label>
+                <div class="col-sm-10">
+                    <select class="form-control-plaintext" name="template">
+                        <option value="default">Default</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="content" class="col-sm-2 col-form-label">@lang('form.content')<span class="text-danger">*</span></label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="editor" name="content" row="10"></textarea>
@@ -32,6 +54,13 @@ Only save insert and save
                 <label for="content-seo" class="col-sm-2 col-form-label">@lang('form.content') Seo <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
                     <textarea class="form-control-plaintext" maxLength="250" id="content-seo" name="content-seo" maxLength="250" placeholder="@lang('form.content_seo_placeholder')"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="content-seo" class="col-sm-2 col-form-label">@lang('form.tags') <span class="text-danger">*</span></label>
+                <div class="col-sm-10 form-tags">
+                    <input value="" type="text" name="tags" class="form-control-plaintext" 
+                    maxLength="75" required placeholder="@lang('form.tags_placeholder')" />
                 </div>
             </div>
             <div class="form-group row">

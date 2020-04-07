@@ -11,10 +11,15 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.alert.js') }}" defer></script>
     <script src="{{ asset('datatable/datatables.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
-
+    <!-- select 2 --> 
+    <!-- <script src="{{ asset('select2/dist/js/select2.full.js') }}" defer></script> -->
+    <!-- <link href="{{ asset('select2/dist/css/select2.min.css') }}" rel="stylesheet"> -->
+    <!-- tinymce --> 
     <script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}" defer></script>
+    <script src="{{ asset('js/tinymce.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,6 +29,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatable/datatables.min.css') }}" rel="stylesheet">
+    <!-- font awesome -->
+    <link href="{{ asset('Font-Awesome/css/fontawesome.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -99,6 +106,31 @@
             @yield('content')
         </main>
         @include('admin.footer.v1')
+        <!-- app alert --> 
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" style="display:none"
+        data-target="#alert-modal-cms-modal-box" id="alert-modal-cms-modal-box-trigger" ></button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="alert-modal-cms-modal-box" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="app-modal-alert-title-cms">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="app-modal-alert-message-cms">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button id="app-modal-alert-button-cancel" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="app-modal-alert-button-confirm" type="button" class="btn btn-primary">Confirm</button>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
 </body>
 </html>

@@ -8,6 +8,7 @@ use App\Model\PageModel;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Exception;
+use Auth;
 class UpdatePageController extends Controller
 {
     // view 
@@ -39,9 +40,14 @@ class UpdatePageController extends Controller
             }
             $id = $page->update([
                 'title' => $request->input('title'),
+                'tags' => $request->input('tags') ? $request->input('tags') : '',
+                'template' => $request->input('template') ? $request->input('template') : 'default',
                 'content' => $request->input('content'),
-                'content_seo' => $request->input('content-seo'),
-                'user_id' => 0
+                'status' => in_array($request->input('status'),[
+                    "pendding","close","public"
+                ]) ? $request->input('status') : 'pendding',
+                'status' => $request->input('status'),
+                'content_seo' => $request->input('content-seo')
             ]);
             if($id) {
                 return redirect(route('ListPage'));
@@ -62,7 +68,10 @@ class UpdatePageController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:150',
             'content' => 'required|min:50',
-            'content-seo' => 'required|min:10'
+            'content-seo' => 'required|min:10',
+            'status' => 'required|max:10',
+            'template' => 'required|max:50',
+            'tags' => 'required|max:75'
         ]);
 
         if ($validator->fails()) {

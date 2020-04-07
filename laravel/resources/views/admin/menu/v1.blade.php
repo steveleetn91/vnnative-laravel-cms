@@ -24,6 +24,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="<?php echo route('MediaPage'); ?>">@lang('admin_menu.admin_menu_media')</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="<?php echo route('DefaultSettingPage'); ?>">@lang('admin_menu.admin_menu_setting')</a>
                 </li>
             </ul>

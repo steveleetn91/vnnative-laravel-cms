@@ -29,6 +29,7 @@ class Controller extends BaseController
                 'exception' => $message,
                 'failed_at' => date('Y-m-d H:i:s',time())
             ]);
+            return redirect()->route('home');
         }
     }
 }

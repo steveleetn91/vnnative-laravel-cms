@@ -26,6 +26,28 @@ Only save insert and save
                 </div>
             </div>
             <div class="form-group row">
+                <label for="post-tile" class="col-sm-2 col-form-label">
+                    @lang('form.status') <span class="text-danger">*</span>
+                </label>
+                <div class="col-sm-10">
+                <select class="form-control-plaintext" name="status">
+                <option <?php echo $data->status === 'pendding' ? 'selected' : ''; ?> value="pendding">Pendding</option>
+                    <option <?php echo $data->status === 'close' ? 'selected' : ''; ?> value="close">Close</option>
+                    <option <?php echo $data->status === 'public' ? 'selected' : ''; ?> value="public">Public</option>
+                </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="post-tile" class="col-sm-2 col-form-label">
+                    @lang('form.template') <span class="text-danger">*</span>
+                </label>
+                <div class="col-sm-10">
+                    <select class="form-control-plaintext" name="template">
+                        <option <?php echo $data->template === "default" ? 'selected' : ''; ?> value="default">Default</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="content" class="col-sm-2 col-form-label">@lang('form.content')<span class="text-danger">*</span></label>
                 <div class="col-sm-10">
                     <textarea class="form-control" id="editor" name="content" row="10">
@@ -38,6 +60,13 @@ Only save insert and save
                 <div class="col-sm-10">
                     <textarea class="form-control-plaintext" id="content-seo" 
                     name="content-seo" maxLength="250" placeholder="@lang('form.content_seo_placeholder')"><?php echo $data->content_seo; ?></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="content-seo" class="col-sm-2 col-form-label">@lang('form.tags') <span class="text-danger">*</span></label>
+                <div class="col-sm-10 form-tags">
+                    <input value="<?php echo $data->tags; ?>" type="text" name="tags" 
+                    class="form-control-plaintext" maxLength="75" required placeholder="@lang('form.tags_placeholder')"/>
                 </div>
             </div>
             <div class="form-group row">
