@@ -42,6 +42,11 @@ Route::prefix('admin')->group(function () {
              */
             Route::get('media','Media\MediaController@indexAction')->name('MediaPage');
             /**
+             * Menu
+             */
+            Route::get('menu-builder','Menu\MenuBuilderController@indexAction')->name('MenuBuilder');
+            Route::post('save-menu-builder','Menu\MenuBuilderController@saveAction')->name('SaveMenuBuilder');
+            /**
              * Setting
              */
             Route::get('setting', 'Setting\DefaultSettingController@indexAction')->name('DefaultSettingPage');

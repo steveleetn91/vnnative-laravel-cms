@@ -14,7 +14,7 @@ class CreatePageController extends Controller
     //
     public function indexAction(){
         try {
-            return view('admin.page.add');
+            return view('admin.page.v1.add');
         }catch(Exception $e) {
             return $this->saveException($e->getMessage());
         }

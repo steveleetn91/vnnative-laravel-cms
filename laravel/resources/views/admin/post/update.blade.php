@@ -13,6 +13,14 @@
 @section('helperContent')
 Only save insert and save
 @endsection
+<!-- section title --> 
+@section('title_page')
+@lang('general.title_update_post_page')
+@endsection 
+<!-- sub title --> 
+@section('sub_title_page')
+@lang('general.sub_title_update_post_page')
+@endsection 
         <form method="POST" action="<?php echo route('SaveUpdatePost',[
             "post_id" => $data->id
         ]); ?>">

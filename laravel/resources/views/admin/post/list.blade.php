@@ -1,7 +1,17 @@
 @extends('admin.layouts.v1')
+<!-- helper content --> 
 @section('helperContent')
-You can search item name by search box
+Only save insert and save
 @endsection
+<!-- section title --> 
+@section('title_page')
+@lang('general.title_list_post_page')
+@endsection 
+<!-- sub title --> 
+@section('sub_title_page')
+@lang('general.sub_title_list_post_page')
+@endsection 
+<!-- content --> 
 @section('content')
     <div class="container">
     <?php 

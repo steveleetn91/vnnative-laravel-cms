@@ -15,7 +15,7 @@ class UpdatePageController extends Controller
     public function indexAction($post_id,Request $request){
          try {
             $post_detail = PageModel::where('id',$post_id)->first();
-            return view('admin.page.update',[
+            return view('admin.page.v1.update',[
                 'data' => $post_detail
             ]);
          }catch(Exception $e) {

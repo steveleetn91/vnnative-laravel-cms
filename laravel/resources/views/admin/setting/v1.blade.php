@@ -23,6 +23,14 @@ if(session('setting_status') == 'success') {
     <?php
 }
 ?>
+<!-- section title --> 
+@section('title_page')
+@lang('general.title_setting_page')
+@endsection 
+<!-- sub title --> 
+@section('sub_title_page')
+@lang('general.sub_title_setting_page')
+@endsection 
 <form method="POST" action="<?php echo route('SaveSettingPage'); ?>">
     <div class="form-group row">
         <label for="sitename" class="col-sm-2 col-form-label">

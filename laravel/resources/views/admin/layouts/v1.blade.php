@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'VN Native CMS') }}</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='/js/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/app.alert.js') }}" defer></script>
@@ -28,9 +28,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('datatable/datatables.min.css') }}" rel="stylesheet">
-    <!-- font awesome -->
-    <link href="{{ asset('Font-Awesome/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('datatable/datatables.min.css') }}" rel="stylesheet">            
+    <!-- awesome css v5 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
 </head>
 <body>
     <div id="app">
@@ -88,6 +88,11 @@
         @include('admin.menu.v1')
         <main class="py-4">
              <div class="container">
+                 <!-- title section --> 
+                 <div class="box-title-section">
+                    <h2>@yield('title_page')</h2>
+                    <p>@yield('sub_title_page')</p>
+                </div>
                  <!-- help -->
                 <div class="pos-f-t" style="margin-bottom:20px">
                     <div class="collapse" id="navbarToggleExternalContent">

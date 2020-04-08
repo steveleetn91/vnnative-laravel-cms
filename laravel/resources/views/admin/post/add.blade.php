@@ -13,6 +13,14 @@
 @section('helperContent')
 Only save insert and save
 @endsection
+<!-- section title --> 
+@section('title_page')
+@lang('general.title_add_post_page')
+@endsection 
+<!-- sub title --> 
+@section('sub_title_page')
+@lang('general.sub_title_add_post_page')
+@endsection 
         <form method="POST" action="<?php echo route('SaveCreatePost'); ?>">
             <div class="form-group row">
                 <label for="post-tile" class="col-sm-2 col-form-label">

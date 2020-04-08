@@ -14,7 +14,7 @@ class ListPageController extends Controller
     public function indexAction(){
         try {
             $posts = PageModel::all();
-            return view('admin.page.list',array('data' => $posts));
+            return view('admin.page.v1.list',array('data' => $posts));
         }catch(Exception $e) {
             return $this->saveException($e->getMessage()); 
         }

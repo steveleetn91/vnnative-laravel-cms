@@ -5,6 +5,8 @@ Setup laravel before then
 
 Run artisan setup : php artisan setup:setting
 
+Note : You need setup info into .env file before run composer
+
 ## Author
 
  - Le Minh Hoang

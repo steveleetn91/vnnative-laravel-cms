@@ -6,5 +6,6 @@ return [
     'admin_menu_setting' => 'Setting',
     'admin_menu_add_text' => 'add',
     'admin_menu_list_text' => 'list',
-    'admin_menu_media' => "Media"
+    'admin_menu_media' => "Media",
+    'admin_menu_menu_builder' => "Menu"
 ];

@@ -20,3 +20,8 @@ footer {
 table.dataTable thead th:nth-child(2){
     width:137px!important;
 }
+.box-title-section {
+    display:inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+}

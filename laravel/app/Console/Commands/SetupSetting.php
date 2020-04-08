@@ -66,6 +66,12 @@ class SetupSetting extends Command
                 'value' => 'en',
                 'created_at' => date('Y-m-d H:i:s',time()),
                 'updated_at' => date('Y-m-d H:i:s',time()),
+            ],
+            [
+                'key' => 'menu_builder',
+                'value' => '[]',
+                'created_at' => date('Y-m-d H:i:s',time()),
+                'updated_at' => date('Y-m-d H:i:s',time()),
             ]
         ]);
     }

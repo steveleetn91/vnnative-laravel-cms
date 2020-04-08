@@ -12,9 +12,9 @@ return [
     "status" => "Trạng thái",
     "template" => "Loại trang",
     "tags" => "Từ khoá",
-    "tags_placeholder" => "Example : php, laravel, vn native",
-    "delete_post_title_popup" => "Delete post",
-    "delete_post_message_popup" => "Do you wanna delete it ?",
-    "delete_post_text_button_cancel" => "Cancel",
-    "delete_post_text_button_confirm" => "Confirm"
+    "tags_placeholder" => "Ví dụ : php, laravel, vn native",
+    "delete_post_title_popup" => "Xoá bài viết",
+    "delete_post_message_popup" => "Bạn có chắc là muốn xoá nó ?",
+    "delete_post_text_button_cancel" => "Thoát",
+    "delete_post_text_button_confirm" => "Xác nhận"
 ];

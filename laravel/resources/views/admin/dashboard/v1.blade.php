@@ -2,6 +2,14 @@
 @section('helperContent')
     Make a dashboard by your style
 @endsection
+<!-- section title --> 
+@section('title_page')
+@lang('general.title_dashboard_page')
+@endsection 
+<!-- sub title --> 
+@section('sub_title_page')
+@lang('general.sub_title_dashboard_page')
+@endsection 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
