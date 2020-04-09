@@ -18,9 +18,9 @@ class ListPostController extends Controller
              * Check roles
              */
             if($this->checkRoles('see_post') === false ) {
-                $posts = PageModel::where('user_id',Auth::user()->id);
+                $posts = PostModel::where('user_id',Auth::user()->id);
             } else {
-                $posts = PageModel::all();
+                $posts = PostModel::all();
             }
             /**
              * If role invalid 
