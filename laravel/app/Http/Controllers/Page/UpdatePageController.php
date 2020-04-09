@@ -14,6 +14,15 @@ class UpdatePageController extends Controller
     // view 
     public function indexAction($post_id,Request $request){
          try {
+             /**
+             * Check roles
+             */
+            if($this->checkRoles('update_page') === false ) {
+                return redirect()->route('ListPage');
+            }
+            /**
+             * If role invalid 
+             */
             $post_detail = PageModel::where('id',$post_id)->first();
             return view('admin.page.v1.update',[
                 'data' => $post_detail
@@ -27,6 +36,15 @@ class UpdatePageController extends Controller
      */
     public function saveAction($post_id,Request $request){
          try {
+             /**
+             * Check roles
+             */
+            if($this->checkRoles('update_page') === false ) {
+                return redirect()->route('ListPage');
+            }
+            /**
+             * If role invalid 
+             */
             $validator = $this->validateForm($request,$post_id);
             if($validator != false ) {
                 return back()->withErrors($validator)->withInput();
@@ -44,14 +62,16 @@ class UpdatePageController extends Controller
                 'template' => $request->input('template') ? $request->input('template') : 'default',
                 'content' => $request->input('content'),
                 'status' => in_array($request->input('status'),[
-                    "pendding","close","public"
-                ]) ? $request->input('status') : 'pendding',
+                    "pending","close","public"
+                ]) ? $request->input('status') : 'pending',
                 'status' => $request->input('status'),
                 'content_seo' => $request->input('content-seo')
             ]);
             if($id) {
+                $request->session()->put('update_status',true);
                 return redirect(route('ListPage'));
             } else {
+                $request->session()->put('update_status',false);
                 return redirect(route('UpdatePage'));
             }
          }catch(Exception $e) {

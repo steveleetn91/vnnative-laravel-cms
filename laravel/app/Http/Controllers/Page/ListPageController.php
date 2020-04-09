@@ -13,7 +13,18 @@ class ListPageController extends Controller
     //
     public function indexAction(){
         try {
-            $posts = PageModel::all();
+            $posts = [];
+            /**
+             * Check roles
+             */
+            if($this->checkRoles('see_page') === false ) {
+                $posts = PageModel::where('user_id',Auth::user()->id);
+            } else {
+                $posts = PageModel::all();
+            }
+            /**
+             * If role invalid 
+             */
             return view('admin.page.v1.list',array('data' => $posts));
         }catch(Exception $e) {
             return $this->saveException($e->getMessage()); 
@@ -33,10 +44,10 @@ class ListPageController extends Controller
                 if($data->count() >= 1 ) {
                     $delete = $data->delete();
                     if($delete) {
-                        $request->session()->put('delete_status','successfully');
+                        $request->session()->put('delete_status',true);
                         return redirect()->route('ListPage');
                     }
-                    $request->session()->put('delete_status','failed');
+                    $request->session()->put('delete_status',false);
                     return redirect()->route('ListPage');
                 }
                 throw new Exception("Permission denied delete " . $id);

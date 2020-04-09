@@ -39,7 +39,7 @@ Only save insert and save
                 </label>
                 <div class="col-sm-10">
                 <select class="form-control-plaintext" name="status">
-                <option <?php echo $data->status === 'pendding' ? 'selected' : ''; ?> value="pendding">Pendding</option>
+                <option <?php echo $data->status === 'pending' ? 'selected' : ''; ?> value="pending">Pending</option>
                     <option <?php echo $data->status === 'close' ? 'selected' : ''; ?> value="close">Close</option>
                     <option <?php echo $data->status === 'public' ? 'selected' : ''; ?> value="public">Public</option>
                 </select>
@@ -80,7 +80,7 @@ Only save insert and save
             <div class="form-group row">
                 <label for="content-seo" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                    <button class="btn btn-primary">@lang('form.update')</button>
+                    <button class="btn btn-primary"><i class="far fa-save"></i> @lang('form.update')</button>
                 </div>
             </div>
             @csrf

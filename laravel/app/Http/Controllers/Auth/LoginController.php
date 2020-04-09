@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Helpers\AdminUser\AdminUserRoleHelper;
 
 class LoginController extends Controller
 {
@@ -44,7 +45,14 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->route('dashboard');
+            /**
+             * Check Active Account
+             */
+            if($this->checkRoles('active') === false ) {
+                return redirect()->route('logout');
+            } else {
+                return redirect()->route('dashboard');
+            }
         } else {
             return redirect()->route('login');
         }

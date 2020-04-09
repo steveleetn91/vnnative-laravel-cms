@@ -15,11 +15,54 @@ Only save insert and save
 @section('content')
     <div class="container">
     <?php 
-      if(session('delete_status') == 'successfully') {
+      if(session('delete_status') === true) {
           session()->forget('delete_status');
           ?>
           <div class="alert alert-success">
               You has been deleted successfully
+          </div>
+          <?php
+      } else if(session('delete_status') === false){
+        session()->forget('delete_status');
+          ?>
+          <div class="alert alert-danger">
+              You has been deleted failed
+          </div>
+          <?php
+      }
+      /**
+       * Add new 
+       */
+      if(session('add_new_status') === true) {
+          session()->forget('add_new_status');
+          ?>
+          <div class="alert alert-success">
+              You has been added successfully
+          </div>
+          <?php
+      } else if(session('add_new_status') === false){
+        session()->forget('add_new_status');
+          ?>
+          <div class="alert alert-danger">
+              You has been added failed
+          </div>
+          <?php
+      }
+      /**
+       * Add new 
+       */
+      if(session('update_status') === true) {
+          session()->forget('update_status');
+          ?>
+          <div class="alert alert-success">
+              You has been updated successfully
+          </div>
+          <?php
+      } else if(session('update_status') === false){
+        session()->forget('update_status');
+          ?>
+          <div class="alert alert-danger">
+              You has been updated failed
           </div>
           <?php
       }
@@ -40,10 +83,12 @@ Only save insert and save
     <?php foreach($data as $key => $value ) {?>
       <tr>
         <td class="th-sm"><?php echo $value->title; ?></td>
-        <td class="th-sm">
-        <button class="btn btn-danger" onclick="delete_page('<?php echo $value->id; ?>','<?php echo route('DeletePage',['page_id' => $value->id]); ?>');">Destroy</button>
+        <td class="th-sm text-center box-action-of-list">
+          <span onclick="delete_page('<?php echo $value->id; ?>','<?php echo route('DeletePage',['page_id' => $value->id]); ?>');">
+          <i class="far fa-trash-alt"></i>
+          </span>
           <a href="<?php echo route('UpdatePage',['page_id' => $value->id]); ?>">
-            <button class="btn btn-warning">Edit</button>
+          <i class="far fa-edit"></i>
           </a>
         </td>
       </tr>

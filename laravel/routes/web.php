@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@indexAction');
+/**
+ * Admin 
+ */
 Route::prefix('admin')->group(function () {
         Route::middleware(['auth'])->group(function() {
-            Route::get('dashboard', 'HomeController@index')->name('dashboard');
+            Route::get('dashboard', 'Dashboard\DashboardController@indexAction')->name('dashboard');
             /**
              * Post Router
              */
@@ -29,6 +30,15 @@ Route::prefix('admin')->group(function () {
             Route::post('action-update-post/{post_id}', 'Post\UpdatePostController@saveAction')->name('SaveUpdatePost');
             Route::get('delete-post/{post_id}', 'Post\ListPostController@deleteAction')->name('DeletePost');
             /**
+             * Category
+             */
+            Route::get('list-category', 'Category\ListCategoryController@indexAction')->name('ListCategory');
+            Route::get('add-new-category', 'Category\CreateCategoryController@indexAction')->name('CreateCategory');
+            Route::post('action-add-new-category', 'Category\CreateCategoryController@saveAction')->name('SaveCreateCategory');
+            Route::get('update-category/{category_id}', 'Category\UpdateCategoryController@indexAction')->name('UpdateCategory');
+            Route::post('action-update-category/{category_id}', 'Category\UpdateCategoryController@saveAction')->name('SaveUpdateCategory');
+            Route::get('delete-category/{category_id}', 'Category\ListCategoryController@deleteAction')->name('DeleteCategory');
+            /**
              * Page Router
              */
             Route::get('list-page', 'Page\ListPageController@indexAction')->name('ListPage');
@@ -37,6 +47,13 @@ Route::prefix('admin')->group(function () {
             Route::get('update-page/{page_id}', 'Page\UpdatePageController@indexAction')->name('UpdatePage');
             Route::post('action-update-page/{page_id}', 'Page\UpdatePageController@saveAction')->name('SaveUpdatePage');
             Route::get('delete-page/{page_id}', 'Page\ListPageController@deleteAction')->name('DeletePage');
+            /**
+             * User 
+             */
+            Route::get('list-user', 'User\ListUserController@indexAction')->name('ListUser');
+            Route::get('update-user/{user_id}', 'User\UpdateUserController@indexAction')->name('UpdateUser');
+            Route::post('action-update-user/{user_id}', 'User\UpdateUserController@saveAction')->name('SaveUpdateUser');
+            Route::get('delete-user/{user_id}', 'User\ListUserController@deleteAction')->name('DeleteUser');
             /**
              * Media
              */

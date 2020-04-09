@@ -16,13 +16,14 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->enum('status',['close','pendding','public'])->default('pendding');
+            $table->enum('status',['close','pending','public'])->default('pending');
             $table->string('slug')->unique();
             $table->text('content');
             $table->string('content_seo');
             $table->string('thumbnail');
             $table->string('user_id');
             $table->string('tags')->default('');
+            $table->string('category_id')->default('');
             $table->timestamps();
         });
     }

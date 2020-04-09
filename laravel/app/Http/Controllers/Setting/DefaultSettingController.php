@@ -6,10 +6,21 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\SettingModel;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 class DefaultSettingController extends Controller
 {
     //
     public function indexAction(){
+        print_r(Auth::user());die;
+        /**
+        * Check roles
+        */
+        if($this->checkRoles('update_setting') === false ) {
+            return redirect()->route('dashboard');
+        }
+        /**
+        * If role invalid 
+        */
         try {
             return view('admin.setting.v1',array(
                 'data' => array(

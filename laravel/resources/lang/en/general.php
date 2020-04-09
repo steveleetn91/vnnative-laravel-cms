@@ -21,4 +21,21 @@ return [
     "sub_title_dashboard_page" => "General infomation",
     "sub_title_media_page" => "Manager image, video , file ...",
     "sub_title_menu_builder_page" => "This a menu for frontend",
+    /**
+     * Category 
+     */
+    "title_category_page" => "Category page",
+    "sub_title_category_page" => "Manager category",
+    "title_add_category_page" => "Add category",
+    "sub_title_add_category_page" => "Fields have character * is required",
+    // update 
+    "title_update_category_page" => "Add category",
+    "sub_title_update_category_page" => "Fields have character * is required",
+    /**
+     * User 
+     */
+    "title_list_user_page" => "Users",
+    "sub_title_list_user_page" => "Manager users",
+    "title_update_user_page" => "Update user",
+    "sub_title_update_user_page" => "Fields have character * is required",
 ];

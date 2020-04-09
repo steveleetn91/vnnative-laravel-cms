@@ -17,11 +17,24 @@ footer {
     margin-top: 20px;
     border-top: 1px solid #ccc;
 }
-table.dataTable thead th:nth-child(2){
+table.dataTable thead th:last-child{
     width:137px!important;
 }
 .box-title-section {
     display:inline-block;
     width: 100%;
     margin-bottom: 15px;
+}
+.box-action-of-list {
+
+}
+.box-action-of-list > * {
+    color:#949090;
+}
+.box-action-of-list > *:hover {
+    cursor: pointer;
+    color:#5e5e5e;
+}
+.box-action-of-list > *:nth-child(1) {
+    margin-right:30px;
 }

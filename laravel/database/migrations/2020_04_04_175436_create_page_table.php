@@ -17,7 +17,7 @@ class CreatePageTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('template')->default('default');
-            $table->enum('status',['close','pendding','public'])->default('pendding');
+            $table->enum('status',['close','pending','public'])->default('pending');
             $table->string('slug')->unique();
             $table->text('content');
             $table->string('content_seo');

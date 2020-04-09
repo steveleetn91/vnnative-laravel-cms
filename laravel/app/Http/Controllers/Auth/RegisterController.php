@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use App\Helpers\AdminUser\AdminUserRoleHelper;
 class RegisterController extends Controller
 {
     /*
@@ -72,10 +72,25 @@ class RegisterController extends Controller
         if($validator != false ) {
             return back()->withErrors($validator)->withInput();
         }
+        /**
+         * Check first account 
+         * If first account then set roles as admin
+         */
+        $roles = "[]";
+        $users = User::all();
+        if($users && count($users) >= 1 ) {
+            $roles = AdminUserRoleHelper::setupAccountUser();
+        } else {
+            $roles = AdminUserRoleHelper::setupAccountAdmin();
+        }
+        /**
+         * Create
+         */
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
+            'todo' => $roles
         ]);
         return redirect()->route('login');
     }

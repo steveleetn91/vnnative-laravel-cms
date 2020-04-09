@@ -14,7 +14,18 @@ class ListPostController extends Controller
     public function indexAction(){
         try {
             $posts = PostModel::all();
-            return view('admin.post.list',array('data' => $posts));
+            /**
+             * Check roles
+             */
+            if($this->checkRoles('see_post') === false ) {
+                $posts = PageModel::where('user_id',Auth::user()->id);
+            } else {
+                $posts = PageModel::all();
+            }
+            /**
+             * If role invalid 
+             */
+            return view('admin.post.v1.list',array('data' => $posts));
         }catch(Exception $e) {
             return $this->saveException($e->getMessage()); 
         }
@@ -33,10 +44,10 @@ class ListPostController extends Controller
                 if($data->count() >= 1 ) {
                     $delete = $data->delete();
                     if($delete) {
-                        $request->session()->put('delete_status','successfully');
+                        $request->session()->put('delete_status',true);
                         return redirect()->route('ListPost');
                     }
-                    $request->session()->put('delete_status','failed');
+                    $request->session()->put('delete_status',false);
                     return redirect()->route('ListPost');
                 }
                 throw new Exception("Permission denied delete " . $id);

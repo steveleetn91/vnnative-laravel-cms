@@ -10,6 +10,15 @@ class MenuBuilderController extends Controller
 {
     //
     public function indexAction(){
+        /**
+        * Check roles
+        */
+        if($this->checkRoles('builder_menu') === false ) {
+            return redirect()->route('dashboard');
+        }
+        /**
+        * If role invalid 
+        */
         return view('admin.menu-builder.v1',array(
             'data' => SettingModel::where('key','menu_builder')->first()->value
         ));

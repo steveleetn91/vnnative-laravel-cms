@@ -7,6 +7,10 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Model\ExceptionModel;
+use Exception;
+use Auth;
+use App\User;
+use App\Helpers\AdminUser\AdminUserRoleHelper;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -31,5 +35,16 @@ class Controller extends BaseController
             ]);
             return redirect()->route('home');
         }
+    }
+    /**
+     * Check roles 
+     */
+    public function checkRoles($roleCheck){
+        $user = User::where('id',Auth::user()->id);
+        $roles = AdminUserRoleHelper::rolesArray($user->first()->todo,true);
+        if(!empty($roles['role_' . $roleCheck])) {
+            return intval($roles['role_' . $roleCheck]) === 1 ? true : false;
+        }
+        throw new Exception("check roles : role not invalid " . $roleCheck);
     }
 }

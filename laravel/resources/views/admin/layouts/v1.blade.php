@@ -30,7 +30,7 @@
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('datatable/datatables.min.css') }}" rel="stylesheet">            
     <!-- awesome css v5 -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}"/>
 </head>
 <body>
     <div id="app">

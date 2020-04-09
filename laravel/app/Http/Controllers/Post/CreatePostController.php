@@ -7,14 +7,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Model\PostModel;
+use App\Model\CategoryModel;
 use Exception;
 use Auth;
+use App\Helpers\Category\CategoryHelper;
+
 class CreatePostController extends Controller
 {
     //
     public function indexAction() {
         try {
-            return view('admin.post.add');
+            /**
+             * Check roles
+             */
+            if($this->checkRoles('add_post') === false ) {
+                return redirect()->route('ListPost');
+            }
+            /**
+             * If role invalid 
+             */
+            return view('admin.post.v1.add',array(
+                'category' => CategoryModel::all()
+            ));
         }catch(Exception $e) {
             return $this->saveException($e->getMessage()); 
         }
@@ -25,6 +39,15 @@ class CreatePostController extends Controller
      */
     public function saveAction(Request $request){
         try {
+            /**
+             * Check roles
+             */
+            if($this->checkRoles('add_post') === false ) {
+                return redirect()->route('ListPost');
+            }
+            /**
+             * If role invalid 
+             */
             $validator = $this->validateForm($request);
             if($validator != false ) {
                 return back()->withErrors($validator)->withInput();
@@ -34,22 +57,31 @@ class CreatePostController extends Controller
              */
             $slug = $request->input('url-seo') ? Str::slug($request->input('url-seo')) : Str::slug($request->input('title'));
             $slug = $slug . '-' . time();
+            $category_id = $request->input('category') 
+            ? CategoryHelper::categorySelected($request->input('category'))
+            : '';
             $id = PostModel::create([
                 'title' => $request->input('title'),
                 'slug' => $slug,
                 'tags' => $request->input('tags') ? $request->input('tags') : '',
                 'status' => in_array($request->input('status'),[
-                    "pendding","close","public"
-                ]) ? $request->input('status') : 'pendding',
+                    "pending","close","public"
+                ]) ? $request->input('status') : 'pending',
                 'content' => $request->input('content'),
                 'content_seo' => $request->input('content-seo'),
-                'thumbnail' => $request->input('thumbnail') ? $request->input('thumbnail') : '',
-                'user_id' => Auth::user()->id
+                'thumbnail' => $request->input('thumbnail') 
+                ? str_replace(url('/'),'',$request->input('thumbnail')) 
+                : '',
+                'user_id' => Auth::user()->id,
+                // category
+                'category_id' => $category_id
             ]);
             if($id) {
+                $request->session()->put('add_new_status',true);
                 return redirect(route('ListPost'));
             } else {
-                return redirect(route('CreatePost'));
+                $request->session()->put('add_new_status',false);
+                return redirect(route('ListPost'));
             }
         }catch(Exception $e) {
             return $this->saveException($e->getMessage()); 

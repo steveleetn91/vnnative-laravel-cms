@@ -21,4 +21,14 @@ return [
     "sub_title_dashboard_page" => "Thông tin chung",
     "sub_title_media_page" => "Quản lí hình ảnh , video , file ....",
     "sub_title_menu_builder_page" => "Danh mục cho trang",
+    /**
+     * Category 
+     */
+    "title_category_page" => "Trang chủ đề",
+    "sub_title_category_page" => "Quản lí chủ đề",
+    "title_add_category_page" => "Thêm chủ đề",
+    "sub_title_add_category_page" => "Trường nhập có ký tự * là bắt buộc",
+    // update 
+    "title_update_category_page" => "Cập nhật chủ đề",
+    "sub_title_update_category_page" => "Trường nhập có ký tự * là bắt buộc",
 ];

@@ -9,6 +9,6 @@ class PostModel extends Model
     //
     protected $table = 'posts';
     protected $fillable = [
-        'id','title', 'content', 'content_seo','slug','user_id','thumbnail','status','tags'
+        'id','title', 'content', 'content_seo','slug','user_id','thumbnail','status','tags','category_id'
     ];
 }

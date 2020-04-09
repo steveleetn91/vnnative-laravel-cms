@@ -14,6 +14,15 @@ class CreatePageController extends Controller
     //
     public function indexAction(){
         try {
+            /**
+             * Check roles
+             */
+            if($this->checkRoles('add_page') === false ) {
+                return redirect()->route('ListPage');
+            }
+            /**
+             * If role invalid 
+             */
             return view('admin.page.v1.add');
         }catch(Exception $e) {
             return $this->saveException($e->getMessage());
@@ -24,6 +33,15 @@ class CreatePageController extends Controller
      */
     public function saveAction(Request $request){
         try {
+            /**
+             * Check roles
+             */
+            if($this->checkRoles('add_page') === false ) {
+                return redirect()->route('ListPage');
+            }
+            /**
+             * If role invalid 
+             */
             $validator = $this->validateForm($request);
             if($validator != false ) {
                 return back()->withErrors($validator)->withInput();
@@ -39,16 +57,18 @@ class CreatePageController extends Controller
                 'slug' => $slug,
                 'template' => $request->input('template') ? $request->input('template') : 'default',
                 'status' => in_array($request->input('status'),[
-                    "pendding","close","public"
-                ]) ? $request->input('status') : 'pendding',
+                    "pending","close","public"
+                ]) ? $request->input('status') : 'pending',
                 'content' => $request->input('content'),
                 'content_seo' => $request->input('content-seo'),
                 'user_id' => Auth::user()->id
             ]);
             if($id) {
+                $request->session()->put('add_new_status',true);
                 return redirect(route('ListPage'));
             } else {
-                return redirect(route('CreatePage'));
+                $request->session()->put('add_new_status',false);
+                return redirect(route('ListPage'));
             }
         }catch(Exception $e) {
             return $this->saveException($e->getMessage());
