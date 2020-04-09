@@ -42,7 +42,7 @@ class Controller extends BaseController
     public function checkRoles($roleCheck){
         $user = User::where('id',Auth::user()->id);
         $roles = AdminUserRoleHelper::rolesArray($user->first()->todo,true);
-        if(!empty($roles['role_' . $roleCheck])) {
+        if(isset($roles['role_' . $roleCheck])) {
             return intval($roles['role_' . $roleCheck]) === 1 ? true : false;
         }
         throw new Exception("check roles : role not invalid " . $roleCheck);
