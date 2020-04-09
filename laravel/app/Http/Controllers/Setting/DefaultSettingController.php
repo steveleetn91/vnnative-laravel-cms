@@ -11,7 +11,6 @@ class DefaultSettingController extends Controller
 {
     //
     public function indexAction(){
-        print_r(Auth::user());die;
         /**
         * Check roles
         */
