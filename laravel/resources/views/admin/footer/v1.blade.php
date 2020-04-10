@@ -12,10 +12,9 @@
     <div class="col-md-6 mt-md-0 mt-3">
 
       <!-- Content -->
-      <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil
-        repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae
-        harum esse fugiat. Itaque, culpa?</p>
+      <h5 class="text-uppercase font-weight-bold">Author Says</h5>
+      <p>My name is Hoang Lee , i hope Vn Native CMS will helping builder save many time . 
+        Cms make follow rules of Laravel Framework . So we can read code and custom very easy</p>
 
     </div>
     <!-- Grid column -->
@@ -26,10 +25,8 @@
     <div class="col-md-6 mb-md-0 mb-3">
 
       <!-- Content -->
-      <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum
-        commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id
-        excepturi hic.</p>
+      <h5 class="text-uppercase font-weight-bold">Thanks so much</h5>
+      <p>Thanks so much by any reason for selected Vn Native Framework </p>
 
     </div>
     <!-- Grid column -->

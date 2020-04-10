@@ -1,5 +1,12 @@
 body {
     margin:0px;
+    background-color:#f3eeee!important;
+}
+footer {
+    border:none!important;
+}
+.no-padding-left {
+    padding-left: 0px!important;
 }
 .ck-editor__editable:not(.ck-editor__nested-editable) { 
     min-height: 400px;
@@ -21,9 +28,9 @@ table.dataTable thead th:last-child{
     width:137px!important;
 }
 .box-title-section {
-    display:inline-block;
+    display: inline-block;
     width: 100%;
-    margin-bottom: 15px;
+    margin-top: 15px;
 }
 .box-action-of-list {
 
@@ -49,4 +56,35 @@ table.dataTable thead th:last-child{
     border-radius: 50%;
     margin-right: 5px;
     border: 2px solid #d9d9e0;
+}
+.box-menu-admin {
+    width:100%;
+    display: inline-block;
+}
+.box-menu-admin .navbar-brand {
+    float: left;
+    color: white!important;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 4px #064386;
+}
+.big-box-admin-sub-menu {
+    background: blue;
+}
+.big-box-admin-sub-menu ul li > a {
+    color:#ccc!important;
+}
+.big-box-admin-sub-menu li.active > a,.big-box-admin-sub-menu li > a:hover {
+    color:white!important;
+    scale: 10.0;
+}
+main.container {
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    padding-top: 15px;
+}
+.big-box-admin-sub-menu > .container {
+    padding:0px;
+}
+.big-box-admin-sub-menu > .container > nav {
+    padding-left: 0px;
 }
