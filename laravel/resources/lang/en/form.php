@@ -50,5 +50,6 @@ return [
     "user_role_builder_menu" => "Builder menu",
     "user_role_manager_user" => "Manager user",
     "user_role_text_active" => "Active",
-    "user_role_text_unactive" => "InActive"
+    "user_role_text_unactive" => "InActive",
+    "user_avatar" => "Avatar"
 ];

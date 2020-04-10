@@ -10,4 +10,5 @@ return [
     'admin_menu_menu_builder' => "Menu",
     'admin_menu_category' => "Category",
     'admin_menu_user' => "User",
+    'admin_menu_profile' => "Profile"
 ];

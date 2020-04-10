@@ -64,10 +64,19 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <div class="header-avatar-menu-user">
+                                        <img class="admin-header-user-avatar-menu" 
+                                        src="{{asset(Auth::user()->avatar)}}" width="40"/>
+                                    </div>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <!-- profile --> 
+                                    <a class="dropdown-item" href="<?php echo route('UpdateUserProfile'); ?>">  
+                                    @lang('admin_menu.admin_menu_profile')
+                                    </a>
+                                    <!-- logout --> 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

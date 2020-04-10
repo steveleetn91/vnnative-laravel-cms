@@ -38,4 +38,6 @@ return [
     "sub_title_list_user_page" => "Manager users",
     "title_update_user_page" => "Update user",
     "sub_title_update_user_page" => "Fields have character * is required",
+    "title_list_user_profile" => "Profile",
+    "sub_title_list_user_profile" => "Update info your profile",
 ];

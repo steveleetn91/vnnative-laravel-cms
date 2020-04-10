@@ -14,7 +14,6 @@ use App\Helpers\AdminUser\AdminUserRoleHelper;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
     public function saveException($message){
         /**
          * If App using debug model 

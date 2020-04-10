@@ -38,3 +38,15 @@ table.dataTable thead th:last-child{
 .box-action-of-list > *:nth-child(1) {
     margin-right:30px;
 }
+.admin-header-user-avatar-menu {
+    
+}
+.header-avatar-menu-user {
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    float: left;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: 2px solid #d9d9e0;
+}

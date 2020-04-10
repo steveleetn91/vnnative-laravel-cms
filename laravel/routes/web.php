@@ -54,6 +54,8 @@ Route::prefix('admin')->group(function () {
             Route::get('update-user/{user_id}', 'User\UpdateUserController@indexAction')->name('UpdateUser');
             Route::post('action-update-user/{user_id}', 'User\UpdateUserController@saveAction')->name('SaveUpdateUser');
             Route::get('delete-user/{user_id}', 'User\ListUserController@deleteAction')->name('DeleteUser');
+            Route::get('user-profile', 'User\UpdateUserProfileController@indexAction')->name('UpdateUserProfile');
+            Route::post('update-user-profile', 'User\UpdateUserProfileController@saveAction')->name('SaveUpdateUserProfile');
             /**
              * Media
              */
