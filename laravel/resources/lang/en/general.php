@@ -40,4 +40,7 @@ return [
     "sub_title_update_user_page" => "Fields have character * is required",
     "title_list_user_profile" => "Profile",
     "sub_title_list_user_profile" => "Update info your profile",
+    // password
+    "title_change_password_page" => "Password",
+    "sub_title_change_password_page" => "Change your password",
 ];

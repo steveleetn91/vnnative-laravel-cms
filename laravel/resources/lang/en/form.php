@@ -51,5 +51,11 @@ return [
     "user_role_manager_user" => "Manager user",
     "user_role_text_active" => "Active",
     "user_role_text_unactive" => "InActive",
-    "user_avatar" => "Avatar"
+    "user_avatar" => "Avatar",
+    "user_old_password" => "Old password",
+    "user_old_password_holder" => "Old password your account",
+    "user_new_password" => "New password",
+    "user_new_password_holder" => "New password for your account",
+    "user_confirm_new_password" => "Confirm new password",
+    "user_confirm_new_password_placeholder" => "Use new password again"
 ];

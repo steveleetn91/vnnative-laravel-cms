@@ -57,6 +57,11 @@ Route::prefix('admin')->group(function () {
             Route::get('user-profile', 'User\UpdateUserProfileController@indexAction')->name('UpdateUserProfile');
             Route::post('update-user-profile', 'User\UpdateUserProfileController@saveAction')->name('SaveUpdateUserProfile');
             /**
+             * Change password
+             */
+            Route::get('change-password', 'User\ResetPasswordUserController@indexAction')->name('ChangePasswordUser');
+            Route::post('update-change-password', 'User\ResetPasswordUserController@saveAction')->name('SaveChangePasswordUser');
+            /**
              * Media
              */
             Route::get('media','Media\MediaController@indexAction')->name('MediaPage');

@@ -78,6 +78,10 @@
                                             <a class="dropdown-item" href="<?php echo route('UpdateUserProfile'); ?>">  
                                             @lang('admin_menu.admin_menu_profile')
                                             </a>
+                                            <!-- change password --> 
+                                            <a class="dropdown-item" href="<?php echo route('ChangePasswordUser'); ?>">  
+                                            @lang('admin_menu.admin_menu_change_password')
+                                            </a>
                                             <!-- logout --> 
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

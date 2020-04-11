@@ -81,6 +81,9 @@ main.container {
     border: 1px solid #ccc;
     margin: 20px auto;
     padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 12px #ada8a8;
 }
 .big-box-admin-sub-menu > .container {
     padding:0px;
