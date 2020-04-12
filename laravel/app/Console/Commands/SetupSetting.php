@@ -38,26 +38,40 @@ class SetupSetting extends Command
      */
     public function handle()
     {
-        //
+        $sitename = $this->ask('What is your site name?');
+        if(strlen($sitename) <= 2) {
+            exit("ERROR: Site name shuold have more than 2 characters ");
+        }
         /**
-         * Site name
+         * Slogan site 
          */
+        $slogan = $this->ask('What is your slogan site?');
+        if(strlen($slogan) <= 2) {
+            exit("ERROR: Slogan shuold have more than 2 characters ");
+        }
+        /**
+         * SMTP Mail
+         */
+        $smtp_mail = $this->ask('What is your smtp mail site?');
+        if(strlen($smtp_mail) <= 2) {
+            exit("ERROR: Smtp mail shuold have more than 6 characters ");
+        }
         SettingModel::insert([
             [
                 'key' => 'sitename',
-                'value' => 'Vn Native Cms',
+                'value' => $sitename,
                 'created_at' => date('Y-m-d H:i:s',time()),
                 'updated_at' => date('Y-m-d H:i:s',time())
             ],
             [
                 'key' => 'siteslogan',
-                'value' => 'Example Cms',
+                'value' => $slogan,
                 'created_at' => date('Y-m-d H:i:s',time()),
                 'updated_at' => date('Y-m-d H:i:s',time()),
             ],
             [
                 'key' => 'contact_mail',
-                'value' => 'example@gmail.com',
+                'value' => $smtp_mail,
                 'created_at' => date('Y-m-d H:i:s',time()),
                 'updated_at' => date('Y-m-d H:i:s',time()),
             ],
@@ -74,5 +88,6 @@ class SetupSetting extends Command
                 'updated_at' => date('Y-m-d H:i:s',time()),
             ]
         ]);
+        echo "Login here : " . env('APP_URL') . '/admin/login';
     }
 }
