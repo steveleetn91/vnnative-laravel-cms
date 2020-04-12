@@ -88,6 +88,9 @@ class SetupSetting extends Command
                 'updated_at' => date('Y-m-d H:i:s',time()),
             ]
         ]);
-        echo "Login here : " . env('APP_URL') . '/admin/login';
+        $this->line("Login here : " . env('APP_URL') . '/user/login');
+        $this->line("Register here : " . env('APP_URL') . '/user/register');
+        $this->line("Note : First account register will have full roles, 
+        and accounts register late will can't login if that account has not approved by admin");
     }
 }
