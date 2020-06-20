@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/github/steveleetn91/vnnative-laravel-cms?branch=master)](https://ci.appveyor.com/project/steveleetn91/vnnative-laravel-cms)
 
 ## Setup
 
